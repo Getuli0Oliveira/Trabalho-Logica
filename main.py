@@ -120,3 +120,78 @@ while True:
     if repetir_pedido != 'S':
         print('Valor total do pedido: R${:.2f}'.format(acumulador))
         break
+	
+# Exercício 3:
+
+#Declaração de funções
+
+def volumeFeijoada():
+	print('--------------------- Menu 1 de 3 - Volume Feijoada ---------------------')
+	while True: 
+		try:	
+			volumeF = int(input('Insira a quantidade desejada: '))
+			if (volumeF >= 300) and (volumeF <= 5000):
+				return volumeF * 0.08
+			else:
+				print('Valor não aceito')
+		except ValueError: 
+			print('Digite valores sem vírgula')	
+		
+def opcaoFeijoada():
+	print('--------------------- Menu 2 de 3 - Opção Feijoada ----------------------')
+	while True: 
+		opcaoF = input('Qual opção de feijoada deseja? \n'+
+									'B - Básica \n' +
+									'P - Premium \n' + 
+									'S - Suprema \n'
+									'>> ')
+	
+		opcaoF = opcaoF.lower()
+		if opcaoF == 'b':
+			return 1.00
+		elif opcaoF == 'p':
+			return 1.25
+		elif opcaoF == 's':
+			return 1.50
+		else:
+			print('Opção Inválida')
+			continue
+
+def acompanhamentoFeijoada():
+	print('--------------------- Menu 3 de 3 - Acompanhamento Feijoada -------------')
+	acumulador = 0
+	while True: 
+		acompanhamentoF = input('Deseja algum adicional? \n' +
+													 '0 - Finalizar pedido \n' +
+													 '1 - 200g de Arroz Branco \n'+
+													 '2 - 150g de Farofa Especial \n'+
+													 '3 - 100g de Couve Cozida \n' +
+													 '4 - Laranja Descascada \n'+
+													 '>> ')
+		if acompanhamentoF == '0':
+			return acumulador
+		elif acompanhamentoF == '1':
+			acumulador = acumulador + 5
+			continue
+		elif acompanhamentoF == '2':
+			acumulador = acumulador + 6
+			continue
+		elif acompanhamentoF == '3':
+			acumulador = acumulador + 7
+			continue
+		elif acompanhamentoF == '4':
+			acumulador = acumulador + 3
+			continue
+		else:
+			print('Opção Inválida')
+			
+#main
+
+print('--------------------Bem-vindo ao programa de feijoada--------------------')
+volume = volumeFeijoada()
+opcao = opcaoFeijoada()  # Armazena a opção escolhida na variável "opcao"
+acompanhamento = acompanhamentoFeijoada()
+total = volume * opcao + acompanhamento
+print('O total a ser pago é R${:.2f} (Volume: R${:.2f}), (Opção: R${:.2f}, (Adicionais: R${:.2f})'.format(total, volume, opcao, acompanhamento))
+
+	
