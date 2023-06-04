@@ -1,94 +1,90 @@
-# declaração de variáveis
-
-valor_produto = float(input('Digite o valor do produto: '))
-qtd_produto = int(input('Digite a quantidade do produto: '))
-desconto_produto = 0
-
-# calculo descontos
-
-if qtd_produto < 5:
-	desconto_produto = 0.00
-elif qtd_produto > 5 and qtd_produto < 20:
-	desconto_produto = 0.03
-elif qtd_produto > 20 and qtd_produto < 100:
-	desconto_produto = 0.06
-else:
-	desconto_produto = 0.10
-  
-# resultado descontos
-
-total_sem_desconto = valor_produto * qtd_produto
-print('O valor sem desconto é de R${:.2f}' .format(total_sem_desconto))
-
-total_com_desconto = total_sem_desconto - total_sem_desconto * desconto_produto
-print('O valor com desconto é de R${:.2f}' .format(total_com_desconto))
-
+# declaração de variáveis 
+ 
+valor_produto = float(input('Digite o valor do produto: ')) 
+qtd_produto = int(input('Digite a quantidade do produto: ')) 
+desconto_produto = 0 
+ 
+# calculo descontos 
+ 
+if qtd_produto < 10: 
+ desconto_produto = 0.00 
+elif qtd_produto >= 10 and qtd_produto < 100: 
+ desconto_produto = 0.05 
+elif qtd_produto >= 100 and qtd_produto < 1000: 
+ desconto_produto = 0.10 
+else: 
+ desconto_produto = 0.15 
+ 
+# resultado descontos 
+ 
+total_sem_desconto = valor_produto * qtd_produto 
+print('O valor sem desconto é de R${:.2f}'.format(total_sem_desconto)) 
+ 
+total_com_desconto = total_sem_desconto - total_sem_desconto * desconto_produto 
+print('O valor com desconto é de R${:.2f}'.format(total_com_desconto)) 
 
 # Exercício 2: 
 
-print('Bem-vindo(a) à lanchonete do Getúlio Nunes Oliveira  ')
-print('x-------------------Cardápio------------------------x')
-print('│ CÓDIGO │ DESCRIÇÃO  │ PIZZA MÉDIA  │ PIZZA GRANDE │')
-print('│---------------------------------------------------│')
-print('│     21 │ Napolitana │     R$ 20,00 │     R$ 26,00 │')
-print('│     22 │ Margherita │     R$ 20,00 │     R$ 26,00 │')
-print('│     23 │ Calabresa  │     R$ 25,00 │     R$ 32,50 │')
-print('│     24 │ Toscana    │     R$ 30,00 │     R$ 39,00 │')
-print('│     25 │ Portuguesa │     R$ 30,00 │     R$ 39,00 │')
-print('x---------------------------------------------------x')
-
-acumulador = 0
-
-while True:
-    tamanho = input('Entre com o tamanho de pizza desejada (M/G): ')
-    tamanho = tamanho.upper()
-    if tamanho != 'M' and tamanho != 'G':
-        print('Opção inválida. Este tamanho não está disponível!')
-        continue # Se o usuário digitar algo inválido volta para o início do laço
-    codigo = input('Entre com o codigo de pizza desejado: ')
-    if codigo != '21' and codigo != '22' and codigo != '23' and codigo != '24' and codigo != '25':
-        print('Opção inválida. Este código não está disponível!')
-        continue # Se o usuário digitar algo inválido volta para o início do laço
-
-    if  codigo == '21' and tamanho == 'M' :
-        print('Você escolheu a pizza Napolitana tamanho M')
-        acumulador = acumulador + 20 # pegue o valor que tinha no acumulador e some com 20
-    elif codigo == '21' and tamanho == 'G':
-        print('Você escolheu a pizza Napolitana tamanho G')
-        acumulador = acumulador + 26 # pegue o valor que tinha no acumulador e some com 26
-    elif codigo == '22' and tamanho == 'M':
-        print('Você escolheu a pizza Margherita tamanho M')
-        acumulador = acumulador + 20 # pegue o valor que tinha no acumulador e some com 20
-    elif codigo == '22' and tamanho == 'G':
-        print('Você escolheu a pizza Margherita tamanho G')
-        acumulador = acumulador + 26 # pegue o valor que tinha no acumulador e some com 26
-    elif codigo == '23' and tamanho == 'M':
-        print('Você escolheu a pizza Calabresa tamanho M')
-        acumulador = acumulador + 25 # pegue o valor que tinha no acumulador e some com 25
-    elif codigo == '23' and tamanho == 'G':
-        print('Você escolheu a pizza Calabresa tamanho G')
-        acumulador = acumulador + 32.50 # pegue o valor que tinha no acumulador e some com 32,50
-    elif codigo == '24' and tamanho == 'M':
-        print('Você escolheu a pizza Toscana tamanho M')
-        acumulador = acumulador + 30 # pegue o valor que tinha no acumulador e some com 30
-    elif codigo == '24' and tamanho == 'G':
-        print('Você escolheu a pizza Toscana tamanho G')
-        acumulador = acumulador + 39 # pegue o valor que tinha no acumulador e some com 39
-    elif codigo == '25' and tamanho == 'M':
-        print('Você escolheu a pizza Portuguesa tamanho M')
-        acumulador = acumulador + 30 # pegue o valor que tinha no acumulador e some com 30
-    elif codigo == '25' and tamanho == 'G':
-        print('Você escolheu a pizza Portuguesa tamanho G')
-        acumulador = acumulador + 39 # pegue o valor que tinha no acumulador e some com 39
-
-    repetir_pedido = input('Deseja adicionar mais itens ao pedido? S/Digite outra tecla: ')
-    repetir_pedido = repetir_pedido.upper()
-    if repetir_pedido == 'S':
-        continue
-    else:
-        print('Valor total do pedido: R${:.2f}' .format(acumulador))
-        break
-
+#prints com as opções do cardápio 
+ 
+print('Bem-vindo(a) à lanchonete do Getúlio Nunes Oliveira') 
+print('x---------------------Cardápio--------------------x') 
+print('│ CÓDIGO │ DESCRIÇÃO │ VALOR │') 
+print('│------------------------------------------------ │') 
+print('│ 100 │ Cachorro-Quente │ R$ 9,00 │') 
+print('│ 101 │ Cachorro-Quente Duplo │ R$ 11,00 │') 
+print('│ 102 │ X-Egg │ R$ 12,00 │') 
+print('│ 103 │ X-Salada │ R$ 13,00 │') 
+print('│ 104 │ X-Bacon │ R$ 14,00 │') 
+print('│ 105 │ X-Tudo │ R$ 17,00 │') 
+print('│ 200 │ Refrigerante Lata │ R$ 5,00 │') 
+print('│ 201 │ Chá Gelado │ R$ 4,00 │') 
+print('x-------------------------------------------------x') 
+ 
+#acumulador que será usado para calcular o total do pedido 
+acumulador = 0 
+ 
+while True: 
+ codigo = input('Entre com o codigo do produto desejado: ') 
+ if codigo != '100' and codigo != '101' and codigo != '102' and codigo != '103' and codigo != '104' and codigo != '105' and codigo != '200' and codigo != '201': 
+ print('Opção inválida. Este código não está disponível!') 
+ continue # Se o usuário digitar algo inválido volta para o início do laço 
+ 
+ if codigo == '100' : 
+ print('Você escolheu o cachorro-Quente, no valor de R$9.00') 
+ acumulador = acumulador + 9 # pegue o valor que tinha no acumulador e some com 9 
+ elif codigo == '101': 
+ print('Você escolheu o cachorro-Quente Duplo, no valor de R$11.00') 
+ acumulador = acumulador + 11 # pegue o valor que tinha no acumulador e some com 11 
+ elif codigo == '102': 
+ print('Você escolheu o X-Egg, no valor de R$12.00') 
+ acumulador = acumulador + 12 # pegue o valor que tinha no acumulador e some com 12 
+ elif codigo == '103': 
+ print('Você escolheu o X-Salada, no valor de R$13.00') 
+ acumulador = acumulador + 13 # pegue o valor que tinha no acumulador e some com 13 
+ elif codigo == '104': 
+ print('Você escolheu o X-Bacon, no valor de R$14.00') 
+ acumulador = acumulador + 14 # pegue o valor que tinha no acumulador e some com 14 
+ elif codigo == '105': 
+ print('Você escolheu o X-Tudo, no valor de R$17.00') 
+ acumulador = acumulador + 17 # pegue o valor que tinha no acumulador e some com 17 
+ elif codigo == '200': 
+ print('Você escolheu o Refrigerante Lata, no valor de R$5.00') 
+ acumulador = acumulador + 5 # pegue o valor que tinha no acumulador e some com 5 
+ elif codigo == '201': 
+ print('Você escolheu o chá gelado, no valor de R$4.00') 
+ acumulador = acumulador + 4 # pegue o valor que tinha no acumulador e some com 4 
+ 
+# pergunta ao usuário se deseja prosseguir ou não 
+ repetir_pedido = input('Deseja adicionar mais itens ao pedido? S/Digite outra tecla: ') 
+ repetir_pedido = repetir_pedido.upper() 
+ if repetir_pedido == 'S': 
+ continue 
+# caso digite outra tecla qualquer o programa termina e apresenta o total do pedido. 
+ else: 
+ print('Valor total do pedido: R${:.2f}' .format(acumulador)) 
+ break 
+ 
 	
 # Exercicio 2 melhorado: 
 
@@ -123,75 +119,81 @@ while True:
 	
 # Exercício 3:
 
-#Declaração de funções
 
-def volumeFeijoada():
-	print('--------------------- Menu 1 de 3 - Volume Feijoada ---------------------')
-	while True: 
-		try:	
-			volumeF = int(input('Insira a quantidade desejada: '))
-			if (volumeF >= 300) and (volumeF <= 5000):
-				return volumeF * 0.08
-			else:
-				print('Valor não aceito')
-		except ValueError: 
-			print('Digite valores sem vírgula')	
-		
-def opcaoFeijoada():
-	print('--------------------- Menu 2 de 3 - Opção Feijoada ----------------------')
-	while True: 
-		opcaoF = input('Qual opção de feijoada deseja? \n'+
-									'B - Básica \n' +
-									'P - Premium \n' + 
-									'S - Suprema \n'
-									'>> ')
-	
-		opcaoF = opcaoF.lower()
-		if opcaoF == 'b':
-			return 1.00
-		elif opcaoF == 'p':
-			return 1.25
-		elif opcaoF == 's':
-			return 1.50
-		else:
-			print('Opção Inválida')
-			continue
+print('Bem-vindo(a) à Companhia de Logística do Getúlio Nunes Oliveira')
+def dimensoesObjeto(): # função que calcula as dimensões e as multiplica para obter o volume
+    while True:
+        try:
+            valor = 0
+            altura = int(input('Qual a altura do objeto em cm? >> '))
+            comprimento = int(input('Qual o comprimento do objeto em cm? >> '))
+            largura = int(input('Qual a largura do objeto? >> '))
+            volume = altura * comprimento * largura
+            if volume < 1000:
+                valor = 10
+            elif (volume <= 1000) and (volume <10000):
+                valor = 20
+            elif (volume <= 10000) and (volume < 30000):
+                valor = 30
+            elif (volume <= 30000) and (volume < 100000):
+                valor = 50
+            elif volume >= 100000:
+                print('Não é aceito')
+                continue
 
-def acompanhamentoFeijoada():
-	print('--------------------- Menu 3 de 3 - Acompanhamento Feijoada -------------')
-	acumulador = 0
-	while True: 
-		acompanhamentoF = input('Deseja algum adicional? \n' +
-													 '0 - Finalizar pedido \n' +
-													 '1 - 200g de Arroz Branco \n'+
-													 '2 - 150g de Farofa Especial \n'+
-													 '3 - 100g de Couve Cozida \n' +
-													 '4 - Laranja Descascada \n'+
-													 '>> ')
-		if acompanhamentoF == '0':
-			return acumulador
-		elif acompanhamentoF == '1':
-			acumulador = acumulador + 5
-			continue
-		elif acompanhamentoF == '2':
-			acumulador = acumulador + 6
-			continue
-		elif acompanhamentoF == '3':
-			acumulador = acumulador + 7
-			continue
-		elif acompanhamentoF == '4':
-			acumulador = acumulador + 3
-			continue
-		else:
-			print('Opção Inválida')
-			
-#main
+            return valor
 
-print('--------------------Bem-vindo ao programa de feijoada--------------------')
-volume = volumeFeijoada()
-opcao = opcaoFeijoada()  # Armazena a opção escolhida na variável "opcao"
-acompanhamento = acompanhamentoFeijoada()
-total = volume * opcao + acompanhamento
-print('O total a ser pago é R${:.2f} (Volume: R${:.2f}), (Opção: R${:.2f}, (Adicionais: R${:.2f})'.format(total, volume, opcao, acompanhamento))
+        except ValueError:
+            print('Digite um valor numérico')
+
+def pesoObjeto(): # função que calcula o peso e determina o valor de acordo com o multiplicador
+    while True:
+        try:
+            peso = int(input('Qual o peso do objeto em kg?'))
+            if peso <= 0.1:
+                return peso * 1
+            elif (peso <= 0.1) and (peso < 1):
+                return peso * 1.5
+            elif (peso <= 1) and (peso < 10):
+                return peso * 2
+            elif (peso <= 10) and (peso < 30):
+                return peso * 3
+            elif peso >= 30:
+                print('Não é aceito')
+        except ValueError:
+            print('Digite um valor numérico')
+
+def rotaObjeto(): # função que calcula a rota/distância e determina o valor de acordo com a distância
+    while True:
+        rotas = input('Selecione a rota desejada\n' +
+                       'RS - Rio de Janeiro até São Paulo  \n' +
+                       'SR - São Paulo até Rio de Janeiro \n' +
+                       'BS - Brasília até São Paulo  \n' +
+                       'SB - São Paulo até Brasília  \n' +
+                       'BR - Brasília até Rio de Janeiro  \n' +
+                       'RB - Rio de Janeiro até Brasília  \n' +
+                       '>> ')
+        rotas = rotas.upper()
+        if rotas == 'RS':
+            return 1.00
+        elif rotas == 'SR':
+            return 1.00
+        elif rotas == 'BS':
+            return 1.20
+        elif rotas == 'SB':
+            return 1.20
+        elif rotas == 'BR':
+            return 1.50
+        elif rotas == 'RB':
+            return 1.50
+        else:
+            print('Opção Inválida')
+            continue
+
+
+# multiplica o resultado obtido nas funções e armazena na variável total.
+
+total = dimensoesObjeto() * pesoObjeto() * rotaObjeto()
+print('Total a pagar (R$): {:.2f}'.format(total))
 
 	
