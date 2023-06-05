@@ -196,4 +196,100 @@ def rotaObjeto(): # função que calcula a rota/distância e determina o valor d
 total = dimensoesObjeto() * pesoObjeto() * rotaObjeto()
 print('Total a pagar (R$): {:.2f}'.format(total))
 
+# Exercício 4: 
+
+# Inicio variaveis globais
+lista_produto = []
+codigo_produto = 0
+# Fim das variáveis globais
+
+# Inicio de cadastra produtos
+def cadastrar_produto(codigo):
+	print('Bem-vindo(a) ao menu de Cadastrar Produtos')
+	print('Código do produto: {}'.format(codigo))
+	nome = input('Entre com o nome do produto: ')
+	fabricante = input('Entre com o nome do fabricante: ')
+	preco = int(input('Entre com o preço em R$: '))
+	dicionario_produto = {'codigo': codigo, 'nome': nome, 'fabricante': fabricante, 'preco': preco}
+	lista_produto.append(dicionario_produto.copy())
+# Fim cadastra produtos
+
+# Inicio de consultar produtos
+def consultar_produto():
+	print('Bem-vindo(a) ao menu de Consultar Produtos')
+	while True:
+		opcao_consultar = input('Escolha a opção desejada:\n' +
+								'1 - Consultar todos os produtos\n' +
+								'2 - Consultar produto por código\n' +
+								'3 - Consultar produto por fabricante\n' +
+								'4 - Retornar\n' +
+								'>> ')
+
+		if opcao_consultar == '1':
+			print('Você escolheu a opção de consultar todos os produtos')
+			for produto in lista_produto:  # varrer toda a lista de produtos
+				print('-----------------')
+				for key, value in produto.items():  # varrer todos os conjuntos chave e valor do dicionário produto
+					print('{}: {}'.format(key, value))
+				print('-----------------')
+		elif opcao_consultar == '2':
+			print('Você escolheu a opção de consultar produto por código')
+			valor_desejado = int(input('Entre com o código desejado: '))
+			for produto in lista_produto:
+				if produto['codigo'] == valor_desejado:  # o valor do campo código desse dicionário é igual ao valor desejado?
+					print('-----------------')
+					for key, value in produto.items():  # varrer todos os conjuntos chave e valor do dicionário produto
+						print('{}: {}'.format(key, value))
+					print('-----------------')
+		elif opcao_consultar == '3':
+			print('Você escolheu a opção de consultar produto(s) por fabricante')
+			valor_desejado = input('Entre com o fabricante desejado: ')
+			for produto in lista_produto:
+				if produto['fabricante'] == valor_desejado:  # o valor do campo fabricante desse dicionário é igual ao valor desejado?
+					print('-----------------')
+					for key, value in produto.items():  # varrer todos os conjuntos chave e valor do dicionário produto
+						print('{}: {}'.format(key, value))
+					print('-----------------')
+		elif opcao_consultar == '4':
+			return  # sai da função consultar e volta para o main
+		else:
+			print('Opção Inválida. Tente novamente')
+			continue
+# Fim de cadastra produtos
+
+# Inicio de remover produtos
+def remover_produto():
+	print('Bem-vindo(a) ao menu de Remover Produtos')
+	valor_desejado = int(input('Entre com o código do produto que deseja remover: '))
+	for produto in lista_produto:
+		if produto['codigo'] == valor_desejado:
+			lista_produto.remove(produto)
+			print('Produto removido')
+# Fim de remover produtos
+
+# Inicio de main
+print('Bem-vindo(a) à mercearia do Getúlio Nunes Oliveira')
+while True:
+	opcao_principal = input('Escolha a opção desejada:\n'+
+							'1 - Cadastrar Produto\n' +
+							'2 - Consultar produto\n' +
+							'3 - Remover Produto\n' + 
+							'4 - Sair\n' +
+							'>> ')
+
+	if opcao_principal == '1':
+		codigo_produto = codigo_produto + 1
+		cadastrar_produto(codigo_produto)
+	elif opcao_principal == '2':
+		consultar_produto()
+	elif opcao_principal == '3':
+		remover_produto()
+	elif opcao_principal == '4':
+		break  # encerra o laço
+	else:
+		print('Opção Inválida. Tente novamente')
+		continue  # volta para o início do laço
+# Fim de main
+
+	
 	
